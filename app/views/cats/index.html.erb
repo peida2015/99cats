@@ -1,0 +1,21 @@
+<h1>99 Cats</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Age</td>
+    <td>Sex</td>
+    <td>Color</td>
+    <td>Description</td>
+  </tr>
+    <% @cats.each do |cat| %>
+  <tr>
+      <td><%= link_to "#{cat.name}", cat_url(cat) %></td>
+      <td><%= cat.age %></td>
+      <td><%= cat.sex %></td>
+      <td><%= cat.color %></td>
+      <td><%= cat.description %></td>
+  </tr>
+    <% end %>
+
+</table>

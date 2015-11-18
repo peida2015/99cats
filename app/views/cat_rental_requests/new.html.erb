@@ -1,0 +1,29 @@
+<h1>Reserve a Cat</h1>
+
+<form action="/cat_rental_requests" method="post">
+  <p>
+    Cat:
+    <select name="cat_rental_request[cat_id]">
+      <option></option>
+      <% @cats.each do |cat| %>
+        <option value="<%= cat.id %>"
+          <%= 'selected' if @request.cat_id == cat.id %>><%= cat.name %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    Start Date:
+    <% date = @request.start_date %>
+    <input type="date"
+           name="cat_rental_request[start_date]"
+           value='<%= date.strftime('%Y-%m-%d') if date %>'/>
+  </p>
+  <p>
+    End Date:
+    <% date = @request.end_date %>
+    <input type="date"
+           name="cat_rental_request[end_date]"
+           value='<%= date.strftime('%Y-%m-%d') if date %>'/>
+  </p>
+  <input type="submit" value="Submit Request">
+</form>
